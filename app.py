@@ -10,7 +10,7 @@ def set_bg_color(hex_color):
     st.markdown(f"""<style>.stApp {{background-color: {hex_color}; transition: background-color 0.5s ease; color: white !important;}}</style>""", unsafe_allow_html=True)
 
 st.title("♻️ Smart Waste Identifier")
-
+file_input = st.file_uploader("Upload an image of waste", type=["jpg", "jpeg", "png", "webp", "avif"])    
 # Load model and labels
 @st.cache_resource
 def load_my_model():
@@ -21,7 +21,7 @@ def load_my_model():
 
 model, class_names = load_my_model()
 
-img_file = st.camera_input("Point at some waste!")
+img_file = file_input
 
 if img_file:
     image = Image.open(img_file).convert("RGB")
@@ -36,12 +36,12 @@ if img_file:
     label = class_names[index].lower()
     confidence = prediction[0][index]
 
-    if "Paper" in label:
+    if "0Paper" in label:
         set_bg_color("#8B4513") # Brown
         st.header("Result: PAPER 📦")
-    elif "Glass" in label:
+    elif "1Glass" in label:
         set_bg_color("#0077be") # Blue
         st.header("Result: GLASS 🍾")
-    elif "Plastic" in label:
+    elif "2Plastic" in label:
         set_bg_color("#FF69B4") # Pink
         st.header("Result: PLASTIC 🥤")

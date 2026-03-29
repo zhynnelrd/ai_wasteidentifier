@@ -35,17 +35,12 @@ if img_file:
     label = class_names[index].lower()
     confidence = prediction[0][index]
 
-    if confidence > 0.80: # Slightly lower threshold since there's no neutral
-        if "Paper" in label:
-            set_bg_color("#8B4513") # Brown
-            st.header("Result: PAPER 📦")
-        elif "Glass" in label:
-            set_bg_color("#0077be") # Blue
-            st.header("Result: GLASS 🍾")
-        elif "Plastic" in label:
-            set_bg_color("#FF69B4") # Pink
-            st.header("Result: PLASTIC 🥤")
-    else:
-        # If confidence is low, keep it gray
-        set_bg_color("#2E2E2E")
-        st.write("Scan an item clearly...")
+    if "Paper" in label:
+        set_bg_color("#8B4513") # Brown
+        st.header("Result: PAPER 📦")
+    elif "Glass" in label:
+        set_bg_color("#0077be") # Blue
+        st.header("Result: GLASS 🍾")
+    elif "Plastic" in label:
+        set_bg_color("#FF69B4") # Pink
+        st.header("Result: PLASTIC 🥤")

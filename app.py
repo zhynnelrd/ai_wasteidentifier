@@ -45,12 +45,12 @@ if img_file:
 
         if "Paper" in clean_label:
             set_bg_color("#8B4513") # Brown
-            st.header("Result: PAPER 📦")
+            st.success("Result: PAPER 📦")
         elif "Glass" in clean_label:
             set_bg_color("#0077be") # Blue
-            st.header("Result: GLASS 🍾")
+            st.success("Result: GLASS 🍾")
         elif "Plastic" in clean_label:
             set_bg_color("#FF69B4") # Pink
-            st.header("Result: PLASTIC 🥤")
+            st.success("Result: PLASTIC 🥤")
         
         st.subheader(f"Confidence: {confidence:.2%}")

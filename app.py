@@ -3,13 +3,13 @@ from PIL import Image, ImageOps
 import numpy as np
 from keras.models import load_model
 
-st.set_page_config(page_title="Waste Classifier", layout="centered")
+st.set_page_config(page_title="Waste Identifier", layout="centered")
 
 # CSS to change background color based on prediction
 def set_bg_color(hex_color):
     st.markdown(f"""<style>.stApp {{background-color: {hex_color}; transition: background-color 0.5s ease; color: white !important;}}</style>""", unsafe_allow_html=True)
 
-st.title("♻️ Smart Waste Classifier")
+st.title("♻️ Smart Waste Identifier")
 
 # Load model and labels
 @st.cache_resource

@@ -17,7 +17,7 @@ def load_my_model():
     model = load_model("keras_model.h5", compile=False)
     #this is the reader of your labels.txt file, it reads each line and strips any whitespace
     with open("labels.txt", "r") as f:
-        class_names = [line.strip()[2:] for line in f.readlines()]
+        class_names = [line.strip() for line in f.readlines()]
     return model, class_names
 
 model, class_names = load_my_model()

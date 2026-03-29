@@ -42,15 +42,16 @@ if img_file:
         full_label = class_names[index]
         clean_label = full_label.lower()  # Get the first word (e.g., "Paper", "Glass", "Plastic")
         confidence = prediction[0][index]
-
-        if "Paper" in clean_label:
-            set_bg_color("#8B4513") # Brown
-            st.success("Result: PAPER 📦")
-        elif "Glass" in clean_label:
-            set_bg_color("#0077be") # Blue
-            st.success("Result: GLASS 🍾")
-        elif "Plastic" in clean_label:
-            set_bg_color("#FF69B4") # Pink
-            st.success("Result: PLASTIC 🥤")
-        
-        st.subheader(f"Confidence: {confidence:.2%}")
+        result_container = st.container()
+        with result_container:
+            if "Paper" in clean_label:
+                set_bg_color("#8B4513") # Brown
+                st.success("Result: PAPER 📦")
+            elif "Glass" in clean_label:
+                set_bg_color("#0077be") # Blue
+                st.success("Result: GLASS 🍾")
+            elif "Plastic" in clean_label:
+                set_bg_color("#FF69B4") # Pink
+                st.success("Result: PLASTIC 🥤")
+            
+            st.subheader(f"Confidence: {confidence:.2%}")

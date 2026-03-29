@@ -15,6 +15,7 @@ st.title("♻️ Smart Waste Identifier")
 @st.cache_resource
 def load_my_model():
     model = load_model("keras_model.h5", compile=False)
+    #this is the reader of your labels.txt file, it reads each line and strips any whitespace
     class_names = [line.strip() for line in open("labels.txt", "r").readlines()]
     return model, class_names
 
